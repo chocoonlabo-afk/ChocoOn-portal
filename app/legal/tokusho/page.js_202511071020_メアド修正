@@ -1,0 +1,54 @@
+export default function TokushoPage() {
+  return (
+    <main className="mx-auto max-w-3xl px-4 py-10 space-y-6">
+      <h1 className="text-2xl font-bold">特定商取引法に基づく表示</h1>
+
+      <section className="space-y-2">
+        <h2 className="font-semibold">販売業者</h2>
+        <p>ChocoOnLabo（個人事業）</p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="font-semibold">運営責任者</h2>
+        <p>後藤 真理子</p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="font-semibold">所在地</h2>
+        <p>お問い合わせいただいた際に遅滞なく開示します。</p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="font-semibold">連絡先</h2>
+        <p>メール：contact@choco-on-labo.com</p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="font-semibold">販売URL</h2>
+        <p>https://choco-on-labo.com</p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="font-semibold">販売価格</h2>
+        <p>各商品ページに税込価格で表示します。</p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="font-semibold">代金の支払方法・時期</h2>
+        <p>
+          クレジットカード（Stripe）での即時決済／継続の場合は毎月自動決済。
+        </p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="font-semibold">商品引渡し時期</h2>
+        <p>決済完了後すぐにご利用いただけます。</p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="font-semibold">返品・キャンセル</h2>
+        <p>デジタル商品のため、返金には対応しておりません。</p>
+      </section>
+    </main>
+  )
+}

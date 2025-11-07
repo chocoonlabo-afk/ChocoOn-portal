@@ -1,0 +1,16 @@
+// portal/app/thank-you/page.tsx
+export default function ThankYouPage() {
+  return (
+    <main className="p-8 space-y-4">
+      <h1 className="text-2xl font-bold">お支払いありがとうございました</h1>
+      <p>決済が完了しました。登録されたメールをご確認ください。</p>
+      <p>
+        アプリの利用開始案内は、このあと作る「本番アプリ」側と連携させますが、
+        ひとまずここがStripeからの戻り先です。
+      </p>
+      <a href="/" className="text-purple-600 underline">
+        トップに戻る
+      </a>
+    </main>
+  )
+}
