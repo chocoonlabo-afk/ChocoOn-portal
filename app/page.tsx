@@ -1,65 +1,91 @@
-// portal/app/page.tsx
+// app/page.tsx
 export default function HomePage() {
+  const apps = [
+    {
+      name: "Pocoapoco",
+      desc: "子どもや生徒の「今日何分やったか」「どんな練習をしたか」を記録しておけるアプリです。保護者・指導者が進捗を把握しやすくなります。",
+      img: "/icons/pocoapoco.png",
+      // ← ここを /buy/pocoapoco にした
+      link: "/buy/pocoapoco",
+    },
+    {
+      name: "PocoPractice",
+      desc: "開発中 もうしばらくお待ちください",
+      img: "/icons/pocopractice.png",
+    },
+    {
+      name: "ConcertNow",
+      desc: "開発中 もうしばらくお待ちください",
+      img: "/icons/concertnow.png",
+    },
+    {
+      name: "MAESTRONOTE",
+      desc: "開発中 もうしばらくお待ちください",
+      img: "/icons/maestronote.png",
+    },
+    {
+      name: "FamiCal",
+      desc: "開発中 もうしばらくお待ちください",
+      img: "/icons/famical.png",
+    },
+    {
+      name: "SakuLog",
+      desc: "開発中 もうしばらくお待ちください",
+      img: "/icons/sakulog.png",
+    },
+  ];
+
   return (
-    <div className="space-y-8">
-      <section className="space-y-3">
-        <h1 className="text-3xl font-bold tracking-tight">
-          ChocoOnLabo（チョコオンラボ）
-        </h1>
-        <p className="text-slate-600">
-          音楽・学習の練習を記録・管理する小さなWebサービスを公開していく予定です。
-          現在は第1弾として「pocoapoco（練習学習管理アプリ）」を提供します。
-        </p>
-        <p className="text-sm text-slate-500">
-          ※このサイトは動作確認中のテスト環境です。実際のご利用・課金はStripeを通じて行われます。
-        </p>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-xl font-semibold">提供中のサービス</h2>
-
-        <div className="rounded-lg border p-4 space-y-2">
-          <h3 className="text-lg font-semibold">pocoapoco</h3>
-          <p className="text-slate-600 text-sm">
-            子どもや生徒の「今日何分やったか」「どんな練習をしたか」を記録しておけるアプリです。
-            保護者・講師が進捗を把握しやすくなります。
+    <div className="flex-1 flex flex-col">
+      {/* 茶色の帯（styleで直指定） */}
+      <header
+        className="w-full"
+        style={{ backgroundColor: "#3A1F0F", color: "#D9C29C" }}
+      >
+        <div className="max-w-5xl mx-auto px-4 py-8 flex flex-col items-center gap-5 text-center">
+          <img src="/logo.png" alt="ChocoOnLabo" className="h-16 w-auto" />
+          <p className="leading-relaxed text-base md:text-lg">
+            私たちは、「子どもの成長と学びをテクノロジーで支える」をテーマに、
+            <br className="hidden md:block" />
+            音楽・教育現場で役立つアプリを開発しています。
           </p>
-          <div className="flex gap-3">
-            {/* 決済ページへの動線 */}
-            <a
-              href="/buy/pocoapoco"
-              className="inline-flex items-center justify-center rounded bg-purple-600 px-4 py-2 text-sm font-medium text-white hover:bg-purple-700"
-            >
-              購入ページへ
-            </a>
-            {/* 実アプリのURLが別サブドメインの場合はここに書く */}
-            <a
-              href="https://pocoapoco.choco-on-labo.com"
-              className="text-sm text-purple-700 hover:underline"
-            >
-              アプリを開く
-            </a>
-          </div>
         </div>
-      </section>
+      </header>
 
-      <section className="space-y-2">
-        <h2 className="text-xl font-semibold">運営者情報</h2>
-        <p className="text-sm text-slate-600">
-          運営者名：ChocoOnLabo
-          <br />
-          連絡先メール：choco-on-labo@gmail.com
-          <br />
-          決済事業者：Stripe, Inc.
-        </p>
-        <p className="text-sm text-slate-500">
-          詳細は
-          <a href="/legal/tokusho" className="text-purple-700 underline ml-1">
-            特定商取引法に基づく表記
-          </a>
-          をご確認ください。
-        </p>
-      </section>
+      {/* アプリ一覧 */}
+      <div className="max-w-5xl mx-auto px-4 py-12">
+        <div className="grid gap-10 md:grid-cols-3">
+          {apps.map((app, idx) => (
+            <div
+              key={app.name}
+              className="flex flex-col items-center text-center gap-4"
+            >
+              <div className="w-32 h-32">
+                <img
+                  src={app.img}
+                  alt={app.name}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="text-sm leading-relaxed text-slate-800">
+                {idx === 0 ? (
+                  <>
+                    <p>{app.desc}</p>
+                    <a
+                      href={app.link}
+                      className="mt-2 inline-block text-slate-900 underline"
+                    >
+                      詳細／購入ページへ
+                    </a>
+                  </>
+                ) : (
+                  <p>{app.desc}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-  )
+  );
 }
