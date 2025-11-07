@@ -1,58 +1,56 @@
-// portal/app/layout.tsx
-import './globals.css'
-import React from 'react'
+// app/layout.tsx
+import "./globals.css";
 
 export const metadata = {
-  title: 'ChocoOnLabo',
-  description: '音楽・学習系のアプリを提供するChocoOnLaboの公式サイトです。',
-}
+  title: "ChocoOnLabo",
+  description: "子どもの成長と学びをテクノロジーで支えるアプリ群",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="ja">
-      <body className="min-h-screen flex flex-col bg-white text-slate-900">
-        {/* Header */}
-        <header className="w-full border-b bg-white/80 backdrop-blur">
-          <div className="mx-auto max-w-4xl px-4 py-3 flex items-center justify-between">
-            <div className="font-bold tracking-tight">ChocoOnLabo</div>
-            <nav className="flex gap-4 text-sm">
-              <a href="/" className="hover:underline">
-                ホーム
-              </a>
+      <body className="min-h-screen bg-white flex flex-col">
+        {/* 上の白いバー：ロゴ＋サイト名のみ */}
+        <div className="w-full bg-white border-b border-slate-200">
+          <div className="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
+            <a href="/" className="flex items-center gap-2">
+              <img src="/logo.png" alt="ChocoOnLabo" className="h-9 w-auto" />
+              <span className="text-lg font-semibold text-slate-900">
+                ChocoOnLabo
+              </span>
+            </a>
+          </div>
+        </div>
+
+        {/* ページ本体 */}
+        <main className="flex-1 flex flex-col">{children}</main>
+
+        {/* フッターはここで1回だけ */}
+        <footer className="mt-auto w-full">
+          <div className="w-full h-[2px] bg-black"></div>
+          <div className="max-w-5xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm tracking-wide text-slate-900">
+            <nav className="flex flex-wrap items-center gap-6 justify-center md:justify-start">
               <a href="/legal/tokusho" className="hover:underline">
-                特定商取引法に基づく表記
+                特定商取引法
               </a>
               <a href="/legal/privacy" className="hover:underline">
-                プライバシーポリシー
+                プライバシー
+              </a>
+              <a href="/legal/terms" className="hover:underline">
+                利用規約
+              </a>
+              <a href="/legal/operator" className="hover:underline">
+                運営者情報
               </a>
             </nav>
-          </div>
-        </header>
-
-        {/* Main */}
-        <main className="flex-1 mx-auto w-full max-w-4xl px-4 py-8">
-          {children}
-        </main>
-
-        {/* Footer */}
-        <footer className="w-full border-t bg-slate-50 mt-10">
-          <div className="mx-auto max-w-4xl px-4 py-4 text-xs text-slate-500 flex flex-wrap gap-4 justify-between">
-            <div>© {new Date().getFullYear()} ChocoOnLabo</div>
-            <div className="flex gap-4">
-              <a href="/legal/tokusho" className="hover:underline">
-                特定商取引法に基づく表記
-              </a>
-              <a href="/legal/privacy" className="hover:underline">
-                プライバシーポリシー
-              </a>
-            </div>
+            <p className="text-xs md:text-sm">© 2025 CHOCOONLABO</p>
           </div>
         </footer>
       </body>
     </html>
-  )
+  );
 }
